@@ -362,6 +362,5 @@ public class ConvertMe {
 		cin.close();
 	}
 
-  
 
 }
