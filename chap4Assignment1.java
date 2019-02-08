@@ -20,7 +20,34 @@ public class Chap4Assignment1 {
     return tempMax;
   }
 
-  static void printResults(int[] randos, int max)
+  static int findSmallest(int[] randos)
+  {
+    int tempMin = 21;
+
+    for(int i = 0; i < randos.length; i++)
+    {
+      if(tempMin > randos[i])
+      {
+        tempMin = randos[i];
+      }
+    }
+
+    return tempMin;
+  }  
+
+  static int findSum(int[] randos)
+  {
+    int tempSum = 0;
+
+    for(int i = 0; i < randos.length; i++)
+    {
+      tempSum += randos[i];
+    }
+
+    return tempSum;
+  }
+
+  static void printResults(int[] randos, int max, int min, int sum)
   {
     String tmpList = "";
     
@@ -36,7 +63,11 @@ public class Chap4Assignment1 {
       }
     }
     System.out.println("\nA list of randoms numbers was created.\n\nHere is the list: [" + tmpList + "]\n");
+    System.out.println("------------------------------------------------------\n");
     System.out.println("The largest number in the list 'o randos is: " + max + "\n");
+    System.out.println("The smallest number in the list 'o randos is: " + min + "\n");
+    System.out.println("The sum of all the numbers in the list 'o randos is: " + sum + "\n");
+    System.out.println("------------------------------------------------------\n");
     
   }
 
@@ -44,7 +75,9 @@ public class Chap4Assignment1 {
     
     // Declare variables
     int[] randos = new int[10];           // Declare our array of 10 items
-    int max = 0;
+    int max = 0;                          // Our soon-to-be largest random number
+    int min = 0;                          // Our soon-to-be smallest random number
+    int sum = 0;                          // Our soon-to-be sum of random number  list
 
     // Create an array of random numbers between 1 and 20
     for(int i = 0; i < 10; i++)
@@ -54,8 +87,10 @@ public class Chap4Assignment1 {
 
     // Find the largest integer
     max = findLargest(randos);
+    min = findSmallest(randos);
+    sum = findSum(randos);
 
-    printResults(randos, max);
+    printResults(randos, max, min, sum);
 
 
 
